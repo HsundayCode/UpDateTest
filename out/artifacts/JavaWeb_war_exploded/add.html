@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>增加学生</title>
+</head>
+<style>
+
+
+</style>
+<script>
+
+</script>
+<body>
+<form action="/add" method="get" >
+    <table>
+        <tr>
+            <td>输入学号:</td>
+            <td><input type="text" name="studentid"></td>
+        </tr>
+        <tr>
+            <td>输入姓名:</td>
+            <td><input type="text" name="studentname"></td>
+        </tr>
+        <tr>
+            <td>性别:</td>
+            <td>
+                <select name="sex" id="sex">
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>年龄:</td>
+            <td><input type="text " name="age"></td>
+        </tr>
+        <tr>
+            <td>入学时间:</td>
+            <td><input type="text" name="time"></td>
+        </tr>
+        <tr>
+            <td>班级</td>
+            <td><input type="text" name="grade"></td>
+        </tr>
+        <tr>
+            <td>出生日期:</td>
+            <td><input type="text" name="birthday"></td>
+        </tr>
+    </table>
+    <input type="submit" value="增加" >
+</form>
+</body>
+</html>

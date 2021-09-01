@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>分页显示</title>
+</head>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.8.0/jquery-1.8.0.min.js"></script>
+<script>
+    var page = 1;
+    ajax();
+    $(document).ready(function () {
+        $("#lastpage").click(function () {
+            page-=1;
+            ajax();
+        })
+    })
+    $(document).ready(function () {
+        $("#nextpage").click(function () {
+            page+=1;
+            ajax();
+        })
+    })
+
+    function ajax(){
+       // $(document).ready(function () {
+          //   $("#btn1").click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/update",
+                    data: {"page":page},
+                    dataType: "json",
+                    success: function (response) {
+                        console.log(response);
+
+
+                        // var jsonArray = $.parseJSON(response);
+                        // alert(jsonArray);//null
+
+                        //document.getElementById("name1").innerHTML=response[0].name;//正确
+                        //$("#age1").html(response[0].age);
+                        for (var i =0,j=1;i<=4,j<=5;i++,j++)
+                        {
+                            if(response[i]==null)
+                            {
+                                $("#name"+j).html("null");
+                                $("#age"+j).html("null");
+                                $("#birthday"+j).html("null");
+                                $("#time"+j).html("null");
+                                $("#grade"+j).html("null");
+                            }else
+                            {
+                                $("#name"+j).html(response[i].name);
+                                $("#age"+j).html(response[i].age);
+                                $("#birthday"+j).html(response[i].birthday);
+                                $("#time"+j).html(response[i].time);
+                                $("#grade"+j).html(response[i].grade);
+                            }
+
+
+                        }
+                    }
+                //})
+            //})
+
+        });
+    }
+
+</script>
+<body>
+<!--<button id="btn1" type="button" onclick="ajax()">测试</button>-->
+
+<div id="">
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>生日</th>
+            <th>入学日期</th>
+            <th>班级</th>
+        </tr>
+        <tr>
+            <td><p id="name1">1</p></td>
+            <td><p id="age1">1</p></td>
+            <td><p id="birthday1">1</p></td>
+            <td><p id="time1">1</p></td>
+            <td><p id="grade1">1</p></td>
+        </tr>
+        <tr>
+            <td><p id="name2">2</p></td>
+            <td><p id="age2">2</p></td>
+            <td><p id="birthday2">2</p></td>
+            <td><p id="time2">2</p></td>
+            <td><p id="grade2">2</p></td>
+        </tr>
+        <tr>
+            <td><p id="name3">1</p></td>
+            <td><p id="age3">2</p></td>
+            <td><p id="birthday3">3</p></td>
+            <td><p id="time3">4</p></td>
+            <td><p id="grade3">5</p></td>
+        </tr>
+        <tr>
+            <td><p id="name4">4</p></td>
+            <td><p id="age4">4</p></td>
+            <td><p id="birthday4">4</p></td>
+            <td><p id="time4">4</p></td>
+            <td><p id="grade4">4</p></td>
+        </tr>
+        <tr>
+            <td><p id="name5">5</p></td>
+            <td><p id="age5">5</p></td>
+            <td><p id="birthday5">5</p></td>
+            <td><p id="time5">5</p></td>
+            <td><p id="grade5">5</p></td>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="" id="lastpage">上一页</button></td>
+            <td><button type="button" onclick="" id="nextpage">下一页</button></td>>
+        </tr>
+        <tr><td><a href="" id="page1">1</a></td>
+            <td><a href="" id="page2">2</a></td>
+            <td><a href="" id="page3">3</a></td>
+            <td><a href="" id="page4">4</a></td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>
