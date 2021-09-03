@@ -10,6 +10,8 @@
     $(document).ready(function () {
         $("#lastpage").click(function () {
             page-=1;
+            if(page<0)
+                page=1;
             ajax();
         })
     })
